@@ -5,6 +5,10 @@ WORKDIR /usr/src/app
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 
+ENV ANCESTREE_DEV_DB_HOST = ""
+ENV ANCESTREE_DEV_DB_USERNAME = ""
+ENV ANCESTREE_DEV_DB_PASSWORD = ""
+
 COPY package.json /usr/src/app/
 RUN npm install
 
