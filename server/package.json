@@ -1,0 +1,33 @@
+{
+  "name": "demo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ./bin/www.mjs",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.5",
+    "cors": "^2.8.5",
+    "debug": "~4.3.1",
+    "dotenv": "^8.2.0",
+    "express": "~4.17.0",
+    "express-jwt": "^5.3.3",
+    "helmet": "^3.22.0",
+    "http-errors": "~1.8.0",
+    "md5": "^2.2.1",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.11.0",
+    "morgan": "^1.10.0",
+    "pug": "3.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1",
+    "nodemon": "^2.0.3",
+    "supertest": "^6.0.0"
+  }
+}

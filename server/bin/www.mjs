@@ -3,32 +3,46 @@
 /**
  * Module dependencies.
  */
+import dotenv from 'dotenv';
+dotenv.config()
+import app from '../app.js';
+import db from '../db.js';
+import debug from 'debug';
+import https from 'https';
+import fs from 'fs';
 
-var app = require('../app');
-var debug = require('debug')('demo:server');
-var http = require('http');
+
+const key = fs.readFileSync('../localhost-key.pem');
+const cert = fs.readFileSync('../localhost.pem');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '5000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTPS server.
  */
 
-var server = http.createServer(app);
+var server = https.createServer({key, cert}, app)
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+//server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+db.initDb((err, db) => {
+  if (err) {
+    console.log(err);
+  } else {
+    server.listen(port);
+  }
+});
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -50,7 +64,7 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * Event listener for HTTPS server "error" event.
  */
 
 function onError(error) {
@@ -78,7 +92,7 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event.
+ * Event listener for HTTPS server "listening" event.
  */
 
 function onListening() {
@@ -87,4 +101,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('Listening on '+ bind)
 }

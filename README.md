@@ -1,11 +1,11 @@
-### Node Express template project
+# Cookbook
 
-This project is based on a GitLab [Project Template](https://docs.gitlab.com/ee/gitlab-basics/create-project.html).
 
-Improvements can be proposed in the [original project](https://gitlab.com/gitlab-org/project-templates/express).
 
-### CI/CD with Auto DevOps
+## Introduction
+Full stack MERN APP 
 
-This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
+Using React, Node.js, Express & MongoDB 
 
-If Auto DevOps is not already enabled for this project, you can [turn it on](https://docs.gitlab.com/ee/topics/autodevops/#enabling-auto-devops) in the project settings.
+Setup:
+- run ```npm i && npm start``` for both client and server side to start the app
