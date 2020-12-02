@@ -12,7 +12,9 @@ router.get('/', function(req, res, next) {
   }
 });
 
-router.get('/login',passport.authenticate('github'))
+router.get("/login", passport.authenticate("google", {
+  scope: ["profile", "email"]
+}));
 
 router.get('/user',(req, res)=>{
   if(req.user){
@@ -23,7 +25,7 @@ router.get('/user',(req, res)=>{
 })}
 })
 
-router.get('/callback',passport.authenticate('github',{
+router.get('/callback',passport.authenticate('google',{
   successRedirect: '/',
   failureRedirect: '/'
 }))

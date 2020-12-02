@@ -9,8 +9,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 import passport from 'passport';
-import GitHubStrategy from 'passport-github';
-GitHubStrategy.Strategy
+import GoogleStrategy from 'passport-google-oauth20';
+GoogleStrategy.Strategy
 import dotenv from 'dotenv';
 dotenv.config()
 import authRouter from './src/routes/auth.js';
@@ -25,10 +25,10 @@ const session = {
   saveUninitialized: true,
 };
 
-const strategy = new GitHubStrategy({
-  clientID: process.env['GIT_CLIENT_ID'],
-  clientSecret: process.env['GIT_CLIENT_SECRET'],
-  callbackURL: process.env['GIT_CALLBACK_URL']
+const strategy = new GoogleStrategy({
+  clientID: process.env['GOOGLE_CLIENT_ID'],
+  clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
+  callbackURL: process.env['GOOGLE_CALLBACK_URL']
 },
 function(accessToken, refreshToken, profile, done) {
   // console.log(profile);
