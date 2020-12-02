@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllRecipes, getRecipe, createRecipe, updateRecipe, likeRecipe, deleteRecipe, sendError} from '../controllers/recipes.js';
+import { getAllRecipes, getRecipe, createRecipe, updateRecipe, likeRecipe, deleteRecipe} from '../controllers/recipes.js';
 
 const router = express.Router();
 
@@ -9,6 +9,5 @@ router.post('/', createRecipe);
 router.patch('/:id', updateRecipe);
 router.delete('/:id', deleteRecipe);
 router.patch('/:id/likeRecipe', likeRecipe);
-router.get('*',sendError)
 
 export default router;

@@ -61,10 +61,5 @@ export const likeRecipe = async (req, res) => {
     const updatedRecipe = await recipeModel.findByIdAndUpdate(id, { likeCount: recipe.likeCount + 1 }, { new: true });
     res.json(updatedRecipe);
 }
-export const sendError = async (req, res) => {
-    res.status(404).json({
-        message: "Route Does Not Exist"
-    });
-}
 
 export default router;
